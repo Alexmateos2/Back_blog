@@ -11,7 +11,8 @@ const server = express();
 const port = process.env.PORT || 3001; // Render define la variable PORT
 
 server.use(express.json());
-server.use(cors());
+import cors from 'cors';
+server.use(cors({ origin: '*' }));
 
 // Conexión a MySQL
 const connection = mysql.createConnection({
