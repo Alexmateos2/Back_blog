@@ -54,9 +54,9 @@ server.get('/posts', (req, res) => {
 // POST /nuevoPost
 server.post('/nuevoPost', upload.single('imagen'), (req, res) => {
   const { titulo, contenido } = req.body;
-  const imagen = req.file ? req.file.filename :  '1688318062859-italia.jpeg';
+  const imagen = req.file.filename;
 
-  if (!titulo || !contenido || !imagen)
+  if (!titulo || !contenido)
     return res.status(400).json({ message: 'Faltan datos obligatorios' });
 
   connection.query(
